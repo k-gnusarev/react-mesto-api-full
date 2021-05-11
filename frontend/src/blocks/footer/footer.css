@@ -1,0 +1,19 @@
+.footer {
+  width: 100%;
+  max-width: 882px;
+
+  margin: auto;
+  padding-bottom: 36px;
+  box-sizing: border-box;
+
+  margin: 0 auto 60px;
+  display: flex;
+  flex-shrink: 0;
+}
+
+@media all and (max-width: 1023px) {
+  .footer {
+    padding-bottom: 36px;
+    padding-left: 10px;
+  }
+}

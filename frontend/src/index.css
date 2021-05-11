@@ -1,0 +1,97 @@
+/* сбрасываем стандартную браузерную стилизацию */
+
+@import url(./vendor/normalize.css);
+
+/* импортируем шрифты */
+
+@import url(./vendor/fonts/inter.css);
+
+/* контейнер страницы */
+
+@import url(./blocks/root/root.css);
+@import url(./blocks/page/page.css);
+
+/* шапка сайта */
+
+@import url(./blocks/header/header.css);
+@import url(./blocks/header/__container/header__container.css);
+@import url(./blocks/header/__link/header__link.css);
+@import url(./blocks/header/__link/_type/header__link_type_signout.css);
+@import url(./blocks/header/__text/header__text.css);
+
+/* лого */
+
+@import url(./blocks/logo/logo.css);
+
+/* основная часть  */
+
+@import url(./blocks/main/main.css);
+
+/* общий стиль для кнопок */
+
+@import url(./blocks/button/button.css);
+@import url(./blocks/button/_style/button_style_white.css);
+
+/* секция профиля */
+
+@import url(./blocks/profile/profile.css);
+@import url(./blocks/profile/__avatar/profile__avatar.css);
+@import url(./blocks/profile/__description/profile__description.css);
+@import url(./blocks/profile/__subtitle/profile__subtitle.css);
+@import url(./blocks/profile/__title/profile__title.css);
+@import url(./blocks/profile/__title-container/profile__title-container.css);
+@import url(./blocks/profile/__edit-button/profile__edit-button.css);
+@import url(./blocks/profile/__add-button/profile__add-button.css);
+@import url(./blocks/profile/__avatar-button/profile__avatar-button.css);
+@import url(./blocks/profile/__avatar-section/profile__avatar-section.css);
+
+/* секция контента */
+
+@import url(./blocks/content/content.css);
+
+/* карточки */
+
+@import url(./blocks/card/card.css);
+@import url(./blocks/card/__photo/card__photo.css);
+@import url(./blocks/card/__title/card__title.css);
+@import url(./blocks/card/__menu/card__menu.css);
+@import url(./blocks/card/__like-button/card__like-button.css);
+@import url(./blocks/card/__like-button/_active/card__like-button_active.css);
+@import url(./blocks/card/__delete-button/card__delete-button.css);
+@import url(./blocks/card/__like-counter/card__like-counter.css);
+@import url(./blocks/card/__delete-button/_hidden/card__delete-button_hidden.css);
+
+/* подвал сайта */
+
+@import url(./blocks/footer/footer.css);
+@import url(./blocks/footer/__copyright/footer__copyright.css);
+
+/* popup */
+
+@import url(./blocks/popup/popup.css);
+@import url(./blocks/popup/__section/popup__section.css);
+@import url(./blocks/popup/__container/popup__container.css);
+@import url(./blocks/popup/__form/popup__form.css);
+@import url(./blocks/popup/__input/popup__input.css);
+@import url(./blocks/popup/__title/popup__title.css);
+@import url(./blocks/popup/_active/popup_active.css);
+@import url(./blocks/popup/__close-button/popup__close-button.css);
+@import url(./blocks/popup/__submit-button/popup__submit-button.css);
+@import url(./blocks/popup/__submit-button/popup__submit-button_inactive/popup__submit-button_inactive.css);
+@import url(./blocks/popup/__photo-title/popup__photo-title.css);
+@import url(./blocks/popup/__photo-container/popup__photo-container.css);
+@import url(./blocks/popup/__photo/popup__photo.css);
+@import url(./blocks/popup/__form-error/popup__form-error.css);
+@import url(./blocks/popup/__form-error/_active/popup__form-error_active.css);
+@import url(./blocks/popup/__input/_state/popup__input_state_error.css);
+@import url(./blocks/popup/__tooltip-text/popup__tooltip-text.css);
+@import url(./blocks/popup/__icon/popup__icon.css);
+
+/* регистрация и вход */
+
+@import url(./blocks/start-section/start-section.css);
+@import url(./blocks/start-section/__input/start-section__input.css);
+@import url(./blocks/start-section/__form/start-section__form.css);
+@import url(./blocks/start-section/__heading/start-section__heading.css);
+@import url(./blocks/start-section/__link/start-section__link.css);
+@import URL(./blocks/start-section/__text/start-section__text.css);

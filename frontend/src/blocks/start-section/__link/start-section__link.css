@@ -1,0 +1,16 @@
+.start-section__link:link {
+  text-decoration: none;
+}
+
+.start-section__link:active {
+  color: rgba(255,255,255,1);
+}
+
+.start-section__link:hover {
+  color: rgba(255,255,255,.6);
+}
+
+.start-section__link:visited {
+  color: rgba(255,255,255,1);
+}
+

@@ -1,0 +1,18 @@
+.profile__title-container {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  margin-left: 0;
+  gap: 17px;
+
+  width: 100%;
+  max-width: 550px;  
+}
+
+@media all and (max-width: 1023px) {
+  .profile__title-container {    
+    margin: auto;
+    justify-content: center;
+  }
+} 
+

@@ -1,0 +1,24 @@
+.start-section__input {  
+  width: 100%;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #ccc;
+  margin-bottom: 30px;
+
+  font-size: 14px;
+  line-height: 1.21;
+
+  color: #fff;
+  background-color: #000;
+
+  padding-bottom: 13px;
+}
+
+.start-section__input::placeholder {
+  color: #ccc;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.21;
+}

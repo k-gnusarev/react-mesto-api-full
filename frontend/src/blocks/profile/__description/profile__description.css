@@ -1,0 +1,13 @@
+.profile__description {
+  margin: auto 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+@media all and (max-width: 1023px) {
+  .profile__description {
+    margin-top: 10.25px;
+    width: 100%;
+    max-width: 820px;
+  }
+}

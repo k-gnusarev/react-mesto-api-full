@@ -1,0 +1,13 @@
+.profile__avatar-button {  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 26px;
+  height: 26px;
+
+  border: none;
+  display: none;
+
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}

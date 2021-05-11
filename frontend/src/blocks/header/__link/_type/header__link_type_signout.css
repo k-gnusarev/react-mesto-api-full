@@ -1,0 +1,13 @@
+.header__link_type_signout {
+  font-size: 18px;
+  line-height: 1.22;
+  
+  font-weight: 400;
+  color: #A9A9A9;
+
+  text-decoration: none;
+}
+
+.header__link_type_signout:hover {
+  color: #fff;
+}

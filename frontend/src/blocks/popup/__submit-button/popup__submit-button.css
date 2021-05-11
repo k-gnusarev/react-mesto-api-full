@@ -1,0 +1,22 @@
+.popup__submit-button {  
+  height: 50px;
+  width: 100%;
+
+  font-size: 18px;
+  line-height: 1.22;
+  text-align: center;
+  color: #fff;
+
+  border: none;
+  background-color: #000;
+  background-size: auto;
+
+  box-sizing: border-box;
+}
+
+.popup__submit-button:not(:disabled):hover {  
+  background: rgba(0, 0, 0, 0.8);
+}
+
+
+

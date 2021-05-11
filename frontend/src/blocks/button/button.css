@@ -1,0 +1,19 @@
+.button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  padding: 0;
+
+  background-repeat: no-repeat;
+  background-position: center;
+
+  box-sizing: border-box;
+
+  cursor: pointer;
+}
+
+.button::-moz-focus-inner {
+  border: none;
+}
+
