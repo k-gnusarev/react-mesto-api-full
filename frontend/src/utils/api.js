@@ -86,11 +86,11 @@ export class Api {
 }
 
 const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-20',
-  headers: {
-    authorization: '844716e7-9dbb-4b26-ac69-cae776690d1d',
-    'Content-Type': 'application/json'
-  }
+  baseUrl: 'https://api.kgnusaryov.mesto.nomoredomains.club',
+  // headers: {
+  //   //authorization: '844716e7-9dbb-4b26-ac69-cae776690d1d',
+  //   'Content-Type': 'application/json'
+  // }
 });
 
 export default api;

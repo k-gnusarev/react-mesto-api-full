@@ -3,7 +3,7 @@ const cors = require('cors');
 const whitelist = [
   'http://kgnusaryov.mesto.nomoredomains.club/',
   'https://kgnusaryov.mesto.nomoredomains.club/',
-  'http://localhost:3000'
+  'http://localhost:3000/'
 ];
 
 const corsOptions = {
