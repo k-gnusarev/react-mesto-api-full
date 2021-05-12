@@ -17,10 +17,10 @@ const { PORT = 3000 } = process.env;
 const app = express();
 
 // МИДЛВЕРЫ
-app.use(express.json());
-app.use(requestLogger);
 app.options('*', cors);
 app.use(cors);
+app.use(express.json());
+app.use(requestLogger);
 
 // роуты, не требующие авторизации
 app.post('/signin', loginValidation, login);
