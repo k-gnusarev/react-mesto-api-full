@@ -11,7 +11,7 @@ const corsOptions = {
     if (allowedDomains.indexOf(origin) !== -1 || !origin) {
       callback(null, true);
     } else {
-      callback(null, false);
+      callback(new Error('Not allowed by CORS'));
     }
   },
   methods: ['GET', 'PUT', 'PATCH', 'POST', 'DELETE'],
