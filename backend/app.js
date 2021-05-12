@@ -11,6 +11,7 @@ const auth = require('./middlewares/auth');
 const { userInfoValidation, loginValidation } = require('./middlewares/requestValidation');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const NotFoundError = require('./errors/NotFoundError');
+const cors = require('./middlewares/cors.js');
 
 const { PORT = 3000 } = process.env;
 const app = express();
@@ -18,6 +19,8 @@ const app = express();
 // МИДЛВЕРЫ
 app.use(express.json());
 app.use(requestLogger);
+app.options('*', cors);
+app.use(cors);
 
 // роуты, не требующие авторизации
 app.post('/signin', loginValidation, login);
