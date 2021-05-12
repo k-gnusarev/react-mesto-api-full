@@ -1,6 +1,6 @@
 const cors = require('cors');
 
-const allowedDomains = [
+const whitelist = [
   'http://kgnusaryov.mesto.nomoredomains.club/',
   'https://kgnusaryov.mesto.nomoredomains.club/',
   'http://localhost:3000'
@@ -8,7 +8,7 @@ const allowedDomains = [
 
 const corsOptions = {
   origin(origin, callback) {
-    if (allowedDomains.indexOf(origin) !== -1 || !origin) {
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));

@@ -11,14 +11,14 @@ const auth = require('./middlewares/auth');
 const { userInfoValidation, loginValidation } = require('./middlewares/requestValidation');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const NotFoundError = require('./errors/NotFoundError');
-//const cors = require('./middlewares/cors.js');
-const cors = require('cors');
+const corsMW = require('./middlewares/cors.js');
 
 const { PORT = 3000 } = process.env;
 const app = express();
 
 // МИДЛВЕРЫ
-app.use(cors());
+app.options('*', corsMW);
+app.use(corsMW);
 app.use(express.json());
 app.use(requestLogger);
 
