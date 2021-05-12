@@ -2,7 +2,7 @@ const cors = require('cors');
 
 const allowedDomains = [
   'http://kgnusaryov.mesto.nomoredomains.club/',
-  'https://http://kgnusaryov.mesto.nomoredomains.club/',
+  'https://kgnusaryov.mesto.nomoredomains.club/',
   'http://localhost:3000'
 ];
 
