@@ -11,7 +11,7 @@ const auth = require('./middlewares/auth');
 const { userInfoValidation, loginValidation } = require('./middlewares/requestValidation');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const NotFoundError = require('./errors/NotFoundError');
-const cors = require('cors');
+//const cors = require('cors');
 //const cors = require('./middlewares/cors.js');
 
 const { PORT = 3000 } = process.env;
@@ -20,7 +20,7 @@ const app = express();
 // МИДЛВЕРЫ
 //app.options('*', cors);
 //app.use(cors);
-app.use(cors())
+//app.use(cors())
 app.use(express.json());
 app.use(requestLogger);
 
