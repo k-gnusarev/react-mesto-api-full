@@ -16,8 +16,6 @@ const NotFoundError = require('./errors/NotFoundError');
 //
 //const cors = require('./middlewares/cors.js');
 
-const { NODE_ENV, JWT_SECRET } = process.env;
-module.exports = { NODE_ENV, JWT_SECRET };
 
 const { PORT = 3000 } = process.env;
 const app = express();
