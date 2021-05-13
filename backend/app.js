@@ -1,6 +1,7 @@
 /* eslint-disable linebreak-style */
+require('dotenv').config();
 const express = require('express');
-//const cors = require('cors');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const helmet = require('helmet');
 const { errors } = require('celebrate');
@@ -15,13 +16,16 @@ const NotFoundError = require('./errors/NotFoundError');
 //
 //const cors = require('./middlewares/cors.js');
 
+const { NODE_ENV, JWT_SECRET } = process.env;
+module.exports = { NODE_ENV, JWT_SECRET };
+
 const { PORT = 3000 } = process.env;
 const app = express();
 
 // МИДЛВЕРЫ
 //app.options('*', cors);
 //app.use(cors);
-//app.use(cors());
+app.use(cors());
 app.use(express.json());
 app.use(requestLogger);
 
@@ -29,7 +33,7 @@ app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
-}); 
+});
 
 // роуты, не требующие авторизации
 app.post('/signin', loginValidation, login);
