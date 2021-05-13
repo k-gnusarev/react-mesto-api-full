@@ -21,7 +21,7 @@ const app = express();
 // МИДЛВЕРЫ
 //app.options('*', cors);
 //app.use(cors);
-app.use(cors());
+//app.use(cors());
 app.use(express.json());
 app.use(requestLogger);
 
