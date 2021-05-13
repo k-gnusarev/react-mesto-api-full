@@ -1,6 +1,6 @@
 /* eslint-disable linebreak-style */
 const express = require('express');
-const cors = require('cors');
+//const cors = require('cors');
 const mongoose = require('mongoose');
 const helmet = require('helmet');
 const { errors } = require('celebrate');
