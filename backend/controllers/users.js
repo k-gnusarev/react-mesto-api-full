@@ -79,7 +79,7 @@ const updateUserAvatar = (req, res, next) => {
 
   User.findByIdAndUpdate(req.user._id, { avatar }, { runValidators: true, new: true })
     .orFail(new Error('NullReturned'))
-    .then((user) => res.send(user.avatar))
+    .then((user) => res.send(user))
     .catch((err) => handleErrors(err))
     .catch(next);
 };

@@ -5,6 +5,7 @@ export class Api {
   }
 
   _getResponseData(res) {
+    console.log(res);
     if (res.ok) {
       return res.json();
     }
@@ -29,6 +30,17 @@ export class Api {
       body: JSON.stringify({
         name: title,
         about: subtitle
+      })
+    })
+      .then(res => this._getResponseData(res));
+  }
+  
+  updateAvatar(avatarLink) {
+    return fetch(`${this._baseUrl}/users/me/avatar`, { 
+      method: 'PATCH',
+      headers: this._headers,
+      body: JSON.stringify({
+        avatar: avatarLink
       })
     })
       .then(res => this._getResponseData(res));
@@ -69,17 +81,6 @@ export class Api {
       .then(res => this._getResponseData(res));
   }
 
-  updateAvatar(avatarLink) {
-    return fetch(`${this._baseUrl}/users/me/avatar`, { 
-      method: 'PATCH',
-      headers: this._headers,
-      body: JSON.stringify({
-        avatar: avatarLink
-      })
-    })
-      .then(res => this._getResponseData(res));
-  }
-
   handleError(err) {
     console.error(err);
   }
@@ -87,10 +88,10 @@ export class Api {
 
 const api = new Api({
   baseUrl: 'https://api.kgnusaryov.mesto.nomoredomains.club',
-  // headers: {
-  //   //authorization: '844716e7-9dbb-4b26-ac69-cae776690d1d',
-  //   'Content-Type': 'application/json'
-  // }
+  headers: {
+    authorization: `Bearer ${localStorage.getItem('token')}`,
+    'Content-Type': 'application/json'
+  }
 });
 
 export default api;

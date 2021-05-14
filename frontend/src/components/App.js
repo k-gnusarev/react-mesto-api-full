@@ -53,7 +53,7 @@ function App() {
       Auth.getContent(token)
         .then((res) => {
           setIsLoggedIn(true);
-          setEmail(res.data.email);
+          setEmail(res.email);
           history.push('/');
         })
         .catch(err => console.log(err));
@@ -168,6 +168,8 @@ function App() {
   function handleUpdateAvatar({avatar}) {
     api.updateAvatar(avatar)
       .then((updatedUser) => {
+        console.log('updatedUser');
+        console.log(updatedUser);
         setCurrentUser(updatedUser);
         setUpdateAvatarActive(false);
       })
@@ -216,12 +218,15 @@ function App() {
   }
 
   function handleLogin(email, password) {
-    Auth.login(email, password)
+    return Auth.login(email, password)
       .then((data) => {
         if (!data) {
           throw new Error('Неизвестная ошибка');
         }
+        console.log('data in auth.login');
+        console.log(data);
 
+        localStorage.setItem('token', data)
         setEmail(email);
         setIsLoggedIn(true);
         handleInfoTooltipMessage({
