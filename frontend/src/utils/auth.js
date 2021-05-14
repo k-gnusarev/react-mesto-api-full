@@ -1,4 +1,4 @@
-const BASE_URL = 'https://auth.nomoreparties.co';
+const BASE_URL = 'https://api.kgnusaryov.mesto.nomoredomains.club';
 
 export const register = (email, password) => {
   return fetch(`${BASE_URL}/signup`, {
@@ -27,7 +27,7 @@ export const login = (email, password) => {
   })
   .then((data) => {
     if (data.token) {
-      localStorage.setItem('jwt', data.token);
+      localStorage.setItem('token', data.token);
       return data.token;
     }
   })

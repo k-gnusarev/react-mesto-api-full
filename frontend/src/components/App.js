@@ -48,9 +48,9 @@ function App() {
   // ПРОВЕРКА ВАЛИДНОСТИ ТОКЕНА 
   
   React.useEffect(() => {
-    if (localStorage.getItem('jwt')) {
-      const jwt = localStorage.getItem('jwt');
-      Auth.getContent(jwt)
+    if (localStorage.getItem('token')) {
+      const token = localStorage.getItem('token');
+      Auth.getContent(token)
         .then((res) => {
           setIsLoggedIn(true);
           setEmail(res.data.email);
@@ -243,7 +243,7 @@ function App() {
 
   function handleLogout() {
     setIsLoggedIn(false);
-    localStorage.removeItem('jwt');
+    localStorage.removeItem('token');
     setEmail('');
     history.push('/sign-in');
   }
