@@ -20,7 +20,11 @@ export class Api {
 
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, { headers: this._headers })
-      .then(res => this._getResponseData(res));
+      .then(res => {
+        console.log('cards');
+        console.log(res);
+        return this._getResponseData(res)
+      });
   }
 
   updateUserInfo(title, subtitle) {
@@ -66,7 +70,7 @@ export class Api {
   }
 
   setLike(cardId) {
-    return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: 'PUT',
       headers: this._headers,
     })
@@ -74,7 +78,7 @@ export class Api {
   }
 
   removeLike(cardId) {
-    return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: 'DELETE',
       headers: this._headers,
     })
