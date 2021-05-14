@@ -19,7 +19,6 @@ export const login = (email, password) => {
     body: JSON.stringify({email, password})
   })
   .then((res) => {
-    console.log('wtf');
     if (res.status === 400) {
       throw new Error('Не все поля заполнены');
     } else if (res.status === 401) {
@@ -27,8 +26,6 @@ export const login = (email, password) => {
     } else return res.json();
   })
   .then((data) => {
-    console.log('data:');
-    console.log(data.token);
     if (data.token) {
       localStorage.setItem('token', data.token);
       return data.token;

@@ -168,8 +168,6 @@ function App() {
   function handleUpdateAvatar({avatar}) {
     api.updateAvatar(avatar)
       .then((updatedUser) => {
-        console.log('updatedUser');
-        console.log(updatedUser);
         setCurrentUser(updatedUser);
         setUpdateAvatarActive(false);
       })
@@ -223,9 +221,6 @@ function App() {
         if (!data) {
           throw new Error('Неизвестная ошибка');
         }
-        console.log('data in auth.login');
-        console.log(data);
-
         localStorage.setItem('token', data)
         setEmail(email);
         setIsLoggedIn(true);

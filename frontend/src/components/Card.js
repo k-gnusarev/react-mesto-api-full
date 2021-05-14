@@ -3,16 +3,9 @@ import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 function Card(props) {
   const currentUser = useContext(CurrentUserContext);
-  console.log('-------------');
-  console.log('currentUser');
-  console.log(currentUser._id);
 
   // Определяем, являемся ли мы владельцем текущей карточки
   const isOwn = props.card.owner === currentUser._id;
-  console.log('props.card.owner');
-  console.log(props.card.owner);
-  console.log('is own?');
-  console.log(isOwn);
 
   // классы для кнопки удаления
 

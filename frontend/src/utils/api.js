@@ -5,7 +5,6 @@ export class Api {
   }
 
   _getResponseData(res) {
-    console.log(res);
     if (res.ok) {
       return res.json();
     }
@@ -20,11 +19,7 @@ export class Api {
 
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, { headers: this._headers })
-      .then(res => {
-        console.log('cards');
-        console.log(res);
-        return this._getResponseData(res)
-      });
+      .then(res => this._getResponseData(res));
   }
 
   updateUserInfo(title, subtitle) {
