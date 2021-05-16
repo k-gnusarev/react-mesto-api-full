@@ -26,8 +26,12 @@ export const login = (email, password) => {
     } else return res.json();
   })
   .then((data) => {
+    console.log('data.token in login()');
+    console.log(data.token);
     if (data.token) {
       localStorage.setItem('token', data.token);
+      console.log('localStorage');
+      console.log(localStorage);
       return data.token;
     }
   })
