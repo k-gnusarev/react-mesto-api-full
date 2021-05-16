@@ -1,5 +1,6 @@
 /* eslint-disable linebreak-style */
 require('dotenv').config();
+console.log(process.env.NODE_ENV)
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
