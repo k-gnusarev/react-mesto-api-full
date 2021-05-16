@@ -22,9 +22,9 @@ module.exports = (req, res, next) => {
     console.log('NODE_ENV, JWT_SECRET');
     console.log(NODE_ENV);
     console.log(JWT_SECRET);
+    console.log('2.1 token');
+    console.log(token);
     payload = jwt.verify(token, `${NODE_ENV === 'production' ? JWT_SECRET : 'some-secret-key'}`);
-    console.log('2.1. payload');
-    console.log(payload);
   } catch (err) {
     console.log('3. error');
     console.log(err);
