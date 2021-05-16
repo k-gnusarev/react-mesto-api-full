@@ -7,6 +7,8 @@ const NotFoundError = require('../errors/NotFoundError');
 // eslint-disable-next-line consistent-return
 module.exports = (req, res, next) => {
   const { authorization } = req.headers;
+  console.log('req');
+  console.log(req);
   console.log('authorization:');
   console.log(authorization);
 
