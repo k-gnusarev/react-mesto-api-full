@@ -33,23 +33,32 @@ function App() {
 
   // СОСТОЯНИЕ ДЛЯ АВТОРИЗОВАННОГО ПОЛЬЗОВАТЕЛЯ
 
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);  
+  const [cards, setCards] = React.useState([]);
   const [email, setEmail] = React.useState('');
   const history = useHistory();
 
   React.useEffect(() => {
-    api.getUserData()
-      .then(res => {
-        setCurrentUser(res);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+    if (isLoggedIn) {
+      api.getUserData()
+        .then(res => {
+          setCurrentUser(res);
+        })
+        .catch((err) => console.log(err));
+        
+      api.getInitialCards()
+        .then(res => {
+          setCards(res);
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [isLoggedIn]);
 
   // ПРОВЕРКА ВАЛИДНОСТИ ТОКЕНА 
   
   React.useEffect(() => {
-    if (localStorage.getItem('token')) {
-      const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token');
+    if (token) {
       Auth.getContent(token)
         .then((res) => {
           setIsLoggedIn(true);
@@ -115,16 +124,6 @@ function App() {
   [])
 
   // ЗАГРУЗКА И УПРАВЛЕНИЕ КАРТОЧКАМИ
-
-  const [cards, setCards] = React.useState([]);
-
-  React.useEffect(() => {
-    api.getInitialCards()
-      .then(res => {
-        setCards(res);
-      })
-      .catch((err) => console.log(err));
-  }, []);
 
   function handleCardLike(card) {
     // Снова проверяем, есть ли уже лайк на этой карточке
@@ -257,7 +256,17 @@ function App() {
           onLogout={handleLogout}
         />
         <Switch>
-          <ProtectedRoute
+          <Route path='/sign-in'>
+            <Login
+              onLogin={handleLogin}
+            />
+          </Route>
+          <Route path='/sign-up'>
+            <Register
+              onRegister={handleRegister}
+            />
+          </Route>
+          {currentUser && <ProtectedRoute
             exact
             path='/'
             isLoggedIn={isLoggedIn}
@@ -269,17 +278,7 @@ function App() {
             onCardLike={handleCardLike}
             onCardDelete={handleCardDelete}
             cards={cards}>
-          </ProtectedRoute>
-          <Route path='/sign-in'>
-            <Login
-              onLogin={handleLogin}
-            />
-          </Route>
-          <Route path='/sign-up'>
-            <Register
-              onRegister={handleRegister}
-            />
-          </Route>
+          </ProtectedRoute>}
           <Route exact path="*">
             {isLoggedIn ? <Redirect to="/" /> : <Redirect to="/sign-in" />}
           </Route> 

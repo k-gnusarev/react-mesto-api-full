@@ -9,7 +9,7 @@ function Main(props) {
 
   const currentUser = React.useContext(CurrentUserContext);
 
-  return (currentUser && 
+  return ( 
     <main className="main">
       <section className="profile">
         <div className="profile__avatar-section" onClick={props.onUpdateAvatar}>
