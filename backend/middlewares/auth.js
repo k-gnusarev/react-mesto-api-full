@@ -2,13 +2,14 @@
 const { NODE_ENV, JWT_SECRET } = process.env;
 const jwt = require('jsonwebtoken');
 const AuthError = require('../errors/AuthError');
+const NotFoundError = require('../errors/NotFoundError');
 
 // eslint-disable-next-line consistent-return
 module.exports = (req, res, next) => {
   const { authorization } = req.headers;
 
   if (!authorization || !authorization.startsWith('Bearer ')) {
-    throw new AuthError('Необходима авторизация ошибкааааааааа');
+    throw new NotFoundError('Запрашиваемый ресурс не найден');
   }
 
   const token = authorization.replace('Bearer ', '');
