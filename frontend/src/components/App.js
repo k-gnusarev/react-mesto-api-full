@@ -221,7 +221,13 @@ function App() {
         if (!data) {
           throw new Error('Неизвестная ошибка');
         }
-        localStorage.setItem('token', data)
+        console.log('localStorage before handleLogin()');
+        console.log(localStorage);
+        console.log('data received in handlelogin (to be written to localStorage)');
+        console.log(data);
+        localStorage.setItem('token', data);
+        console.log('localstorage after handleLogin()');
+        console.log(localStorage);
         setEmail(email);
         setIsLoggedIn(true);
         handleInfoTooltipMessage({

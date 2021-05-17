@@ -16,7 +16,7 @@ export const login = (email, password) => {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({email, password})
+    body: JSON.stringify({ email, password })
   })
   .then((res) => {
     if (res.status === 400) {
@@ -26,8 +26,12 @@ export const login = (email, password) => {
     } else return res.json();
   })
   .then((data) => {
+    console.log('token received');
+    console.log(data.token);
     if (data.token) {
       localStorage.setItem('token', data.token);
+      console.log('saved in localStorage');
+      console.log(localStorage);
       return data.token;
     }
   })

@@ -13,11 +13,15 @@ export class Api {
   }
 
   getUserData() {
+    console.log('this._headers');
+    console.log(this._headers);
     return fetch(`${this._baseUrl}/users/me`, { headers: this._headers })
       .then(res => this._getResponseData(res));
   }
 
   getInitialCards() {
+    console.log('this._headers');
+    console.log(this._headers);
     return fetch(`${this._baseUrl}/cards`, { headers: {'Authorization': `${localStorage.getItem('token')}`, ...this._headers} })
       .then(res => this._getResponseData(res));
   }
