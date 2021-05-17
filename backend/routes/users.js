@@ -13,10 +13,10 @@ const {
   getCurrentUser,
 } = require('../controllers/users');
 
-router.get('/users', getUsers);
-router.get('/users/me', idValidation, getCurrentUser);
-router.get('/users/:id', idValidation, getUser);
-router.patch('/users/me', userInfoUpdateValidation, updateUserInfo);
-router.patch('/users/me/avatar', userAvatarUpdateValidation, updateUserAvatar);
+router.get('/', getUsers);
+router.get('/me', idValidation, getCurrentUser);
+router.get('/:id', idValidation, getUser);
+router.patch('/me', userInfoUpdateValidation, updateUserInfo);
+router.patch('/me/avatar', userAvatarUpdateValidation, updateUserAvatar);
 
 module.exports = router;

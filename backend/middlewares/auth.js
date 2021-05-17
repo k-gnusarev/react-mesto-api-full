@@ -13,7 +13,7 @@ module.exports = (req, res, next) => {
   console.log(authorization);
 
   if (!authorization || !authorization.startsWith('Bearer ')) {
-    throw new NotFoundError('Запрашиваемый ресурс не найден');
+    throw new AuthError('Необходима авторизация');
   }
 
   const token = authorization.replace('Bearer ', '');
