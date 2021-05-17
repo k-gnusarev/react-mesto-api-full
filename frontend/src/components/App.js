@@ -58,8 +58,7 @@ function App() {
   
   React.useEffect(() => {
     const token = localStorage.getItem('token');
-    console.log('токен в проверке валидности');
-    console.log(token); // почему пустой ???
+    
     if (token) {
       Auth.getContent(token)
         .then((res) => {

@@ -13,8 +13,6 @@ export class Api {
   }
 
   getUserData() {
-    console.log('this._headers');
-    console.log(this._headers);
     return fetch(`${this._baseUrl}/users/me`, { headers: this._headers })
       .then(res => this._getResponseData(res));
   }
@@ -86,6 +84,7 @@ export class Api {
     console.error(err);
   }
 }
+console.log('localSotrage при старте')
 console.log(localStorage);
 const api = new Api({
   baseUrl: 'https://api.kgnusaryov.mesto.nomoredomains.club',

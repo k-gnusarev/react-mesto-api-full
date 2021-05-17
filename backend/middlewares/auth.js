@@ -7,10 +7,6 @@ const NotFoundError = require('../errors/NotFoundError');
 // eslint-disable-next-line consistent-return
 module.exports = (req, res, next) => {
   const { authorization } = req.headers;
-  console.log('req.headers');
-  console.log(req.headers);
-  console.log('authorization:');
-  console.log(authorization);
 
   if (!authorization || !authorization.startsWith('Bearer ')) {
     throw new AuthError('Необходима авторизация');
@@ -19,12 +15,8 @@ module.exports = (req, res, next) => {
   const token = authorization.replace('Bearer ', '');
   let payload;
   try {
-    console.log('!!!token:');
-    console.log(token);
     payload = jwt.verify(token, `${NODE_ENV === 'production' ? JWT_SECRET : 'some-secret-key'}`);
   } catch (err) {
-    console.log('3. error');
-    console.log(err);
     throw new AuthError('Необходима авторизация');
   }
 
