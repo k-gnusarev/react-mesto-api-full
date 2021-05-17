@@ -13,15 +13,11 @@ export class Api {
   }
 
   getUserData() {
-    console.log('this._headers');
-    console.log(this._headers);
     return fetch(`${this._baseUrl}/users/me`, { headers: this._headers })
       .then(res => this._getResponseData(res));
   }
 
   getInitialCards() {
-    console.log('this._headers');
-    console.log(this._headers);
     return fetch(`${this._baseUrl}/cards`, { headers: {'Authorization': `${localStorage.getItem('token')}`, ...this._headers} })
       .then(res => this._getResponseData(res));
   }
@@ -91,18 +87,12 @@ export class Api {
   updateHeaders() {
     this._headers = {
       'Content-Type': 'application/json',
-      'Authorization': `${localStorage.getItem('token')}`,
+      'Authorization': `Bearer ${localStorage.getItem('token')}`,
     }
   }
 }
-console.log('localSotrage при старте')
-console.log(localStorage);
 const api = new Api({
   baseUrl: 'https://api.kgnusaryov.mesto.nomoredomains.club',
-  // headers: {
-  //   'Authorization': `Bearer ${localStorage.getItem('token')}`,
-  //   'Content-Type': 'application/json'
-  // }
 });
 
 export default api;

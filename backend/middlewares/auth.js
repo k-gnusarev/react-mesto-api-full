@@ -6,8 +6,6 @@ const NotFoundError = require('../errors/NotFoundError');
 
 // eslint-disable-next-line consistent-return
 module.exports = (req, res, next) => {
-  console.log('req.headers in login controller');
-  console.log(req.headers);
   const { authorization } = req.headers;
 
   if (!authorization || !authorization.startsWith('Bearer ')) {

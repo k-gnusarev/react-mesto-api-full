@@ -27,15 +27,9 @@ export const login = (email, password) => {
     } else return res.json();
   })
   .then((data) => {
-    console.log('token received');
-    console.log(data.token);
     if (data.token) {
       localStorage.setItem('token', data.token);
-      console.log('saved in localStorage');
-      console.log(localStorage);
       api.updateHeaders();
-      console.log('data.token to be returned');
-      console.log(data.token);
       return data.token;
     }
   })

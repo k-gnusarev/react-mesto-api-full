@@ -41,7 +41,6 @@ function App() {
   React.useEffect(() => {
     
     if (isLoggedIn) {
-      console.log(api);
       api.getUserData()
         .then(res => {
           setCurrentUser(res);
@@ -223,13 +222,7 @@ function App() {
         if (!data) {
           throw new Error('Неизвестная ошибка');
         }
-        console.log('localStorage before handleLogin()');
-        console.log(localStorage);
-        console.log('data received in handlelogin (to be written to localStorage)');
-        console.log(data);
         localStorage.setItem('token', data);
-        console.log('localstorage after handleLogin()');
-        console.log(localStorage);
         setEmail(email);
         setIsLoggedIn(true);
         handleInfoTooltipMessage({

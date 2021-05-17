@@ -97,8 +97,6 @@ const updateUserInfo = (req, res, next) => {
 
 // GET users/me — выдаёт текущего пользователя
 const getCurrentUser = (req, res, next) => {
-  console.log('req in getCurrentUser');
-  console.log(req);
   User.findById(req.user._id) // поиск пользователя
     .orFail(new Error('NullReturned'))
     .then((user) => res.send(user))
