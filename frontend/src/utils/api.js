@@ -87,6 +87,13 @@ export class Api {
   handleError(err) {
     console.error(err);
   }
+
+  updateHeaders() {
+    this._headers = {
+      'Content-Type': 'application/json',
+      'Authorization': `${localStorage.getItem('token')}`,
+    }
+  }
 }
 console.log('localSotrage при старте')
 console.log(localStorage);

@@ -39,7 +39,9 @@ function App() {
   const history = useHistory();
 
   React.useEffect(() => {
+    
     if (isLoggedIn) {
+      console.log(api);
       api.getUserData()
         .then(res => {
           setCurrentUser(res);

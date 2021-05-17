@@ -1,3 +1,4 @@
+import api from './api';
 const BASE_URL = 'https://api.kgnusaryov.mesto.nomoredomains.club';
 
 export const register = (email, password) => {
@@ -32,6 +33,9 @@ export const login = (email, password) => {
       localStorage.setItem('token', data.token);
       console.log('saved in localStorage');
       console.log(localStorage);
+      api.updateHeaders();
+      console.log('data.token to be returned');
+      console.log(data.token);
       return data.token;
     }
   })
@@ -50,3 +54,4 @@ export const getContent = (token) => {
     return response.json()
   })
 }
+
