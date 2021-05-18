@@ -29,7 +29,7 @@ const getUsers = (req, res, next) => {
 // GET /users/:userId - возвращает пользователя по _id
 const getUser = (req, res, next) => {
   User.findById(req.params.id)
-    .orFail(new Error('NullReturned'))
+    .orFail(new Error('Нет пользователя с таким id'))
     .then((user) => res.send(user))
     .catch((err) => {
       throw new NotFoundError(err.message);
