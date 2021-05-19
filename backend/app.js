@@ -14,6 +14,8 @@ const auth = require('./middlewares/auth');
 const { userInfoValidation, loginValidation } = require('./middlewares/requestValidation');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const NotFoundError = require('./errors/NotFoundError');
+const userRouter = require('./routes/users');
+const cardRouter = require('./routes/cards');
 
 const { PORT = 3000 } = process.env;
 const app = express();
@@ -33,9 +35,8 @@ app.get('/crash-test', () => {
 app.post('/signin', loginValidation, login);
 app.post('/signup', userInfoValidation, createUser);
 
-app.use(auth);
-
-app.use(router);
+router.use('/users', auth, userRouter);
+router.use('/cards', auth, cardRouter);
 
 app.use(helmet());
 app.disable('x-powered-by');
