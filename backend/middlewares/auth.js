@@ -14,14 +14,12 @@ module.exports = (req, res, next) => {
     throw new AuthError('Необходима авторизация');
   }
 
-  console.log('первую проверку прошли');
-  console.log(authorization);
-
-  const token = authorization.replace('Bearer ', '');
+    const token = authorization.replace('Bearer ', '');
   let payload;
   try {
     payload = jwt.verify(token, `${NODE_ENV === 'production' ? JWT_SECRET : 'some-secret-key'}`);
   } catch (err) {
+    console.log(err);
     throw new AuthError('Необходима авторизация');
   }
 
