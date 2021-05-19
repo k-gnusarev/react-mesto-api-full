@@ -10,7 +10,7 @@ router.use('/users', userRouter);
 router.use('/cards', cardRouter);
 
 router.use('*', (req, res, next) => {
-  next(new NotFoundError(`Ресурс по адресу ${req.path} не найден`));
+  throw new NotFoundError(`Ресурс по адресу ${req.path} не найден`);
 });
 
 module.exports = router;
