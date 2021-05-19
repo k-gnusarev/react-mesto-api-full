@@ -7,7 +7,7 @@ const AuthError = require('../errors/AuthError');
 module.exports = (req, res, next) => {
   const { authorization } = req.headers;
 
-  if (!authorization || !authorization.startsWith('Bearer ')) {
+  if (!authorization) {
     throw new AuthError('Необходима авторизация');
   }
 
