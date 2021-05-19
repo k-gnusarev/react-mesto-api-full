@@ -29,13 +29,13 @@ app.get('/crash-test', () => {
   }, 0);
 });
 
+app.use(router);
 // роуты, не требующие авторизации
 app.post('/signin', loginValidation, login);
 app.post('/signup', userInfoValidation, createUser);
 
 app.use(auth);
 
-app.use(router);
 
 app.use(helmet());
 app.disable('x-powered-by');
