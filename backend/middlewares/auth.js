@@ -7,9 +7,15 @@ const AuthError = require('../errors/AuthError');
 module.exports = (req, res, next) => {
   const { authorization } = req.headers;
 
+  console.log('это первая авторизация');
+  console.log(authorization);
+
   if (!authorization || !authorization.startsWith('Bearer ')) {
     throw new AuthError('Необходима авторизация');
   }
+
+  console.log('первую проверку прошли');
+  console.log(authorization);
 
   const token = authorization.replace('Bearer ', '');
   let payload;
