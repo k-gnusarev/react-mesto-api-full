@@ -7,14 +7,11 @@ const AuthError = require('../errors/AuthError');
 module.exports = (req, res, next) => {
   const { authorization } = req.headers;
 
-  console.log('это первая авторизация');
-  console.log(authorization);
-
   if (!authorization || !authorization.startsWith('Bearer ')) {
     throw new AuthError('Необходима авторизация');
   }
 
-    const token = authorization.replace('Bearer ', '');
+  const token = authorization.replace('Bearer ', '');
   let payload;
   try {
     payload = jwt.verify(token, `${NODE_ENV === 'production' ? JWT_SECRET : 'some-secret-key'}`);

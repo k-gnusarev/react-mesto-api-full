@@ -18,7 +18,7 @@ export class Api {
   }
 
   getInitialCards() {
-    return fetch(`${this._baseUrl}/cards`, { headers: {'Authorization': `${localStorage.getItem('token')}`, ...this._headers} })
+    return fetch(`${this._baseUrl}/cards`, { headers: this._headers })
       .then(res => this._getResponseData(res));
   }
 
@@ -93,6 +93,10 @@ export class Api {
 }
 const api = new Api({
   baseUrl: 'https://api.kgnusaryov.mesto.nomoredomains.club',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${localStorage.getItem('token')}`,
+  }
 });
 
 export default api;
