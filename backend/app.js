@@ -5,7 +5,6 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const helmet = require('helmet');
 const { errors } = require('celebrate');
-const router = require('./routes');
 const {
   createUser,
   login,
@@ -35,8 +34,8 @@ app.get('/crash-test', () => {
 app.post('/signin', loginValidation, login);
 app.post('/signup', userInfoValidation, createUser);
 
-router.use('/users', auth, userRouter);
-router.use('/cards', auth, cardRouter);
+app.use('/users', auth, userRouter);
+app.use('/cards', auth, cardRouter);
 
 app.use(helmet());
 app.disable('x-powered-by');
