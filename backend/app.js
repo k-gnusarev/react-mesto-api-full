@@ -24,6 +24,7 @@ app.use(cors());
 app.use(express.json());
 app.use(requestLogger);
 
+// удалить после успешного ревью
 app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
@@ -34,9 +35,11 @@ app.get('/crash-test', () => {
 app.post('/signin', loginValidation, login);
 app.post('/signup', userInfoValidation, createUser);
 
+// роуты, защищённые авторизацией
 app.use('/users', auth, userRouter);
 app.use('/cards', auth, cardRouter);
 
+// security stuff
 app.use(helmet());
 app.disable('x-powered-by');
 
